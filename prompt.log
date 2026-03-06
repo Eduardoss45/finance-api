@@ -1,0 +1,146 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Program%20Files/Maven/apache-maven-3.9.9/lib/jansi-2.4.1.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Program%20Files/Maven/apache-maven-3.9.9/lib/guava-33.2.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.finances:finances-api >----------------------
+[INFO] Building finances-api 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ finances-api ---
+[INFO] Deleting C:\dev\finances\finances-api\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ finances-api ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 5 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ finances-api ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 12 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ finances-api ---
+[INFO] skip non existing resourceDirectory C:\dev\finances\finances-api\src\test\resources
+[INFO]
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ finances-api ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ finances-api ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.finances.finances_api.FinancesApiApplicationTests
+13:12:29.998 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.finances.finances_api.FinancesApiApplicationTests]: FinancesApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:12:30.297 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.finances.finances_api.FinancesApiApplication for test class com.finances.finances_api.FinancesApiApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.3)
+
+2026-03-06T13:12:31.273-03:00  INFO 12584 --- [finances-api] [           main] c.f.f.FinancesApiApplicationTests        : Starting FinancesApiApplicationTests using Java 25.0.2 with PID 12584 (started by gilgi in C:\dev\finances\finances-api)
+2026-03-06T13:12:31.276-03:00  INFO 12584 --- [finances-api] [           main] c.f.f.FinancesApiApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2026-03-06T13:12:33.513-03:00  INFO 12584 --- [finances-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-06T13:12:33.647-03:00  INFO 12584 --- [finances-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111 ms. Found 4 JPA repository interfaces.
+2026-03-06T13:12:35.326-03:00  INFO 12584 --- [finances-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-06T13:12:35.741-03:00  INFO 12584 --- [finances-api] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@75add13c
+2026-03-06T13:12:35.744-03:00  INFO 12584 --- [finances-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-06T13:12:35.800-03:00  INFO 12584 --- [finances-api] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/finances_db (PostgreSQL 16.13)
+2026-03-06T13:12:35.961-03:00  INFO 12584 --- [finances-api] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 5 migrations (execution time 00:00.100s)
+2026-03-06T13:12:36.002-03:00  INFO 12584 --- [finances-api] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 5
+2026-03-06T13:12:36.011-03:00  INFO 12584 --- [finances-api] [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-03-06T13:12:36.303-03:00  INFO 12584 --- [finances-api] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-06T13:12:36.497-03:00  INFO 12584 --- [finances-api] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-06T13:12:37.779-03:00  INFO 12584 --- [finances-api] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-06T13:12:37.918-03:00  WARN 12584 --- [finances-api] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-06T13:12:37.962-03:00  INFO 12584 --- [finances-api] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+        Database JDBC URL [jdbc:postgresql://localhost:5432/finances_db]
+        Database driver: PostgreSQL JDBC Driver
+        Database dialect: PostgreSQLDialect
+        Database version: 16.13
+        Default catalog/schema: finances_db/public
+        Autocommit mode: undefined/unknown
+        Isolation level: READ_COMMITTED [default READ_COMMITTED]
+        JDBC fetch size: none
+        Pool: DataSourceConnectionProvider
+        Minimum pool size: undefined/unknown
+        Maximum pool size: undefined/unknown
+2026-03-06T13:12:40.174-03:00  INFO 12584 --- [finances-api] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-06T13:12:40.332-03:00  INFO 12584 --- [finances-api] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-06T13:12:40.498-03:00  INFO 12584 --- [finances-api] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-06T13:12:41.072-03:00  WARN 12584 --- [finances-api] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-06T13:12:42.305-03:00  WARN 12584 --- [finances-api] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 4940b5f5-4469-4e44-8df1-330cab4bbfb4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-06T13:12:42.400-03:00  INFO 12584 --- [finances-api] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-06T13:12:42.824-03:00  INFO 12584 --- [finances-api] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-03-06T13:12:43.189-03:00  INFO 12584 --- [finances-api] [           main] c.f.f.FinancesApiApplicationTests        : Started FinancesApiApplicationTests in 12.485 seconds (process running for 15.186)
+===== ORM TEST START =====
+Hibernate: insert into users (active,created_at,email,name,password,role,id) values (?,?,?,?,?,?,?)
+User saved: 99eb6988-4871-44f5-bba7-db0b0c74e090
+Hibernate: select u1_0.id from users u1_0 where u1_0.email=? fetch first ? rows only
+User exists by email: true
+Hibernate: select u1_0.id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.name,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
+User found: Eduardo
+Hibernate: insert into accounts (active,created_at,name,user_id,id) values (?,?,?,?,?)
+Account saved: d111081e-daae-4495-9d97-5caf5a6968c3
+Accounts by user:
+Hibernate: select a1_0.id,a1_0.active,a1_0.created_at,a1_0.name,a1_0.user_id from accounts a1_0 where a1_0.user_id=?
+Account: Main Account
+Hibernate: insert into transactions (account_id,amount,created_at,type,id) values (?,?,?,?,?)
+Hibernate: insert into transactions (account_id,amount,created_at,type,id) values (?,?,?,?,?)
+Transactions saved
+Transactions by account:
+Hibernate: select t1_0.id,t1_0.account_id,t1_0.amount,t1_0.created_at,t1_0.type from transactions t1_0 where t1_0.account_id=?
+CREDIT -> 100.00
+DEBIT -> 40.00
+Transactions ordered by date:
+Hibernate: select t1_0.id,t1_0.account_id,t1_0.amount,t1_0.created_at,t1_0.type from transactions t1_0 where t1_0.account_id=? order by t1_0.created_at desc
+2026-03-06T16:12:44.478410Z | 40.00
+2026-03-06T16:12:44.463716Z | 100.00
+===== ORM TEST FINISHED =====
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\gilgi\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.94 s -- in com.finances.finances_api.FinancesApiApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ finances-api ---
+[INFO] Building jar: C:\dev\finances\finances-api\target\finances-api-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.0.3:repackage (repackage) @ finances-api ---
+[INFO] Replacing main artifact C:\dev\finances\finances-api\target\finances-api-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\dev\finances\finances-api\target\finances-api-0.0.1-SNAPSHOT.jar.original
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ finances-api ---
+[INFO] Installing C:\dev\finances\finances-api\pom.xml to C:\Users\gilgi\.m2\repository\com\finances\finances-api\0.0.1-SNAPSHOT\finances-api-0.0.1-SNAPSHOT.pom
+[INFO] Installing C:\dev\finances\finances-api\target\finances-api-0.0.1-SNAPSHOT.jar to C:\Users\gilgi\.m2\repository\com\finances\finances-api\0.0.1-SNAPSHOT\finances-api-0.0.1-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  36.373 s
+[INFO] Finished at: 2026-03-06T13:12:49-03:00
+[INFO] ------------------------------------------------------------------------
