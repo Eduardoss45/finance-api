@@ -1,9 +1,6 @@
 package com.finances.finances_api.dto.auth;
 
-public class RegisterRequest {
-    private String name;
+public class LoginRequest {
     private String email;
     private String password;
 }
-
-

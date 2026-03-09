@@ -13,6 +13,6 @@ import com.finances.finances_api.dto.auth.RegisterRequest;
 public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<RegisterRequest> register(@RequestBody RegisterRequest dto) {
-        return ResponseEntity.ok(new RegisterRequest());
+        return ResponseEntity.ok(dto);
     }
 }
