@@ -1,9 +1,13 @@
 package com.finances.finances_api.dto.auth;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class LoginResponse {
+@AllArgsConstructor
+@NoArgsConstructor
+public class AuthResponse {
     private String accessToken;
     private String refreshToken;
     private int expiresIn;
