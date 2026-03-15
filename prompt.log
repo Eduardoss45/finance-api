@@ -1,3 +1,4 @@
+PS C:\dev\finances\finances-api> mvn spring-boot:run
 WARNING: A restricted method in java.lang.System has been called
 WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Program%20Files/Maven/apache-maven-3.9.9/lib/jansi-2.4.1.jar)
 WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
@@ -19,16 +20,16 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [INFO] --- resources:3.3.1:resources (default-resources) @ finances-api ---
 [INFO] Copying 1 resource from src\main\resources to target\classes
 [INFO] Copying 5 resources from src\main\resources to target\classes
-[INFO] 
+[INFO]
 [INFO] --- compiler:3.14.1:compile (default-compile) @ finances-api ---
 [INFO] Nothing to compile - all classes are up to date.
-[INFO] 
+[INFO]
 [INFO] --- resources:3.3.1:testResources (default-testResources) @ finances-api ---
 [INFO] skip non existing resourceDirectory C:\dev\finances\finances-api\src\test\resources
-[INFO] 
+[INFO]
 [INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ finances-api ---
 [INFO] Nothing to compile - all classes are up to date.
-[INFO] 
+[INFO]
 [INFO] <<< spring-boot:4.0.3:run (default-cli) < test-compile @ finances-api <<<
 [INFO]
 [INFO]
@@ -44,26 +45,28 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 
  :: Spring Boot ::                (v4.0.3)
 
-2026-03-09T03:45:40.930-03:00  INFO 19392 --- [finances-api] [           main] c.f.finances_api.FinancesApiApplication  : Starting FinancesApiApplication using Java 25.0.2 with PID 19392 (C:\dev\finances\finances-api\target\classes started by gilgi in C:\dev\finances\finances-api)
-2026-03-09T03:45:40.936-03:00  INFO 19392 --- [finances-api] [           main] c.f.finances_api.FinancesApiApplication  : No active profile set, falling back to 1 default profile: "default"
-2026-03-09T03:45:42.427-03:00  INFO 19392 --- [finances-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-09T03:45:42.548-03:00  INFO 19392 --- [finances-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 104 ms. Found 4 JPA repository interfaces.
-2026-03-09T03:45:43.562-03:00  INFO 19392 --- [finances-api] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
-2026-03-09T03:45:43.596-03:00  INFO 19392 --- [finances-api] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-09T03:45:43.597-03:00  INFO 19392 --- [finances-api] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-03-09T03:45:43.755-03:00  INFO 19392 --- [finances-api] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2680 ms
-2026-03-09T03:45:44.625-03:00  INFO 19392 --- [finances-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-09T03:45:44.869-03:00  INFO 19392 --- [finances-api] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42401b81
-2026-03-09T03:45:44.871-03:00  INFO 19392 --- [finances-api] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-09T03:45:44.914-03:00  INFO 19392 --- [finances-api] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/finances_db (PostgreSQL 16.13)
-2026-03-09T03:45:45.010-03:00  INFO 19392 --- [finances-api] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 5 migrations (execution time 00:00.049s)
-2026-03-09T03:45:45.042-03:00  INFO 19392 --- [finances-api] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 5
-2026-03-09T03:45:45.049-03:00  INFO 19392 --- [finances-api] [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2026-03-09T03:45:45.211-03:00  INFO 19392 --- [finances-api] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-03-09T03:45:45.337-03:00  INFO 19392 --- [finances-api] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
-2026-03-09T03:45:46.276-03:00  INFO 19392 --- [finances-api] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-09T03:45:46.397-03:00  WARN 19392 --- [finances-api] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-09T03:45:46.434-03:00  INFO 19392 --- [finances-api] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-03-15T03:10:19.340-03:00  INFO 1784 --- [finances-api] [  restartedMain] c.f.finances_api.FinancesApiApplication  : Starting FinancesApiApplication using Java 25.0.2 with PID 1784 (C:\dev\finances\finances-api\target\classes started by gilgi in C:\dev\finances\finances-api)
+2026-03-15T03:10:19.345-03:00  INFO 1784 --- [finances-api] [  restartedMain] c.f.finances_api.FinancesApiApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-03-15T03:10:19.524-03:00  INFO 1784 --- [finances-api] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-15T03:10:19.524-03:00  INFO 1784 --- [finances-api] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-15T03:10:21.846-03:00  INFO 1784 --- [finances-api] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-15T03:10:22.010-03:00  INFO 1784 --- [finances-api] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143 ms. Found 4 JPA repository interfaces.
+2026-03-15T03:10:23.425-03:00  INFO 1784 --- [finances-api] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-03-15T03:10:23.468-03:00  INFO 1784 --- [finances-api] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-15T03:10:23.468-03:00  INFO 1784 --- [finances-api] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-15T03:10:23.614-03:00  INFO 1784 --- [finances-api] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 4089 ms
+2026-03-15T03:10:25.056-03:00  INFO 1784 --- [finances-api] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-15T03:10:25.612-03:00  INFO 1784 --- [finances-api] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@25ac3169
+2026-03-15T03:10:25.614-03:00  INFO 1784 --- [finances-api] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-15T03:10:25.689-03:00  INFO 1784 --- [finances-api] [  restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/finances_db (PostgreSQL 16.13)
+2026-03-15T03:10:25.886-03:00  INFO 1784 --- [finances-api] [  restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 5 migrations (execution time 00:00.116s)
+2026-03-15T03:10:25.930-03:00  INFO 1784 --- [finances-api] [  restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 5
+2026-03-15T03:10:25.938-03:00  INFO 1784 --- [finances-api] [  restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-03-15T03:10:26.203-03:00  INFO 1784 --- [finances-api] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-15T03:10:26.376-03:00  INFO 1784 --- [finances-api] [  restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-15T03:10:27.780-03:00  INFO 1784 --- [finances-api] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-15T03:10:27.927-03:00  WARN 1784 --- [finances-api] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-15T03:10:27.977-03:00  INFO 1784 --- [finances-api] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
         Database JDBC URL [jdbc:postgresql://localhost:5432/finances_db]
         Database driver: PostgreSQL JDBC Driver
         Database dialect: PostgreSQLDialect
@@ -75,19 +78,150 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
         Pool: DataSourceConnectionProvider
         Minimum pool size: undefined/unknown
         Maximum pool size: undefined/unknown
-2026-03-09T03:45:48.085-03:00  INFO 19392 --- [finances-api] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-09T03:45:48.202-03:00  INFO 19392 --- [finances-api] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-09T03:45:48.274-03:00  WARN 19392 --- [finances-api] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-09T03:45:48.403-03:00 TRACE 19392 --- [finances-api] [           main] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.security.autoconfigure.web.servlet.ServletWebSecurityAutoConfiguration$EnableWebSecurityConfiguration=org.springframework.boot.security.autoconfigure.web.servlet.ServletWebSecurityAutoConfiguration$EnableWebSecurityConfiguration@4f74edbf}
-2026-03-09T03:45:48.412-03:00  WARN 19392 --- [finances-api] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+2026-03-15T03:10:30.800-03:00  INFO 1784 --- [finances-api] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-15T03:10:30.954-03:00  INFO 1784 --- [finances-api] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-15T03:10:31.141-03:00  INFO 1784 --- [finances-api] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-15T03:10:31.560-03:00  WARN 1784 --- [finances-api] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-15T03:10:31.734-03:00 TRACE 1784 --- [finances-api] [  restartedMain] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.security.autoconfigure.web.servlet.ServletWebSecurityAutoConfiguration$EnableWebSecurityConfiguration=org.springframework.boot.security.autoconfigure.web.servlet.ServletWebSecurityAutoConfiguration$EnableWebSecurityConfiguration@3450fd91}
+2026-03-15T03:10:31.744-03:00  WARN 1784 --- [finances-api] [  restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 2c612512-74f0-4e7e-8aae-621385fb33b6
+Using generated security password: 3d7884b4-b1a2-498f-99c5-50841613e37b
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-03-09T03:45:48.426-03:00  INFO 19392 --- [finances-api] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-03-09T03:45:48.628-03:00 DEBUG 19392 --- [finances-api] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
-2026-03-09T03:45:49.194-03:00  INFO 19392 --- [finances-api] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-09T03:45:49.679-03:00  INFO 19392 --- [finances-api] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2026-03-09T03:45:49.842-03:00  INFO 19392 --- [finances-api] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
-2026-03-09T03:45:49.863-03:00  INFO 19392 --- [finances-api] [           main] c.f.finances_api.FinancesApiApplication  : Started FinancesApiApplication in 9.66 seconds (process running for 10.543)
+2026-03-15T03:10:31.770-03:00  INFO 1784 --- [finances-api] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-15T03:10:32.046-03:00 DEBUG 1784 --- [finances-api] [  restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-03-15T03:10:32.927-03:00  INFO 1784 --- [finances-api] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-03-15T03:10:33.136-03:00  INFO 1784 --- [finances-api] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-03-15T03:10:33.148-03:00  INFO 1784 --- [finances-api] [  restartedMain] c.f.finances_api.FinancesApiApplication  : Started FinancesApiApplication in 14.765 seconds (process running for 16.926)
+2026-03-15T03:10:46.739-03:00  INFO 1784 --- [finances-api] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-15T03:10:46.740-03:00  INFO 1784 --- [finances-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-15T03:10:46.742-03:00  INFO 1784 --- [finances-api] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms      
+2026-03-15T03:10:46.798-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilterChain' in [class path resource [com/finances/finances_api/config/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, ExceptionTranslation, Authorization] (1/1)
+2026-03-15T03:10:46.801-03:00 DEBUG 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-03-15T03:10:46.805-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/10)
+2026-03-15T03:10:46.815-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/10)
+2026-03-15T03:10:46.822-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/10)
+2026-03-15T03:10:46.832-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/10)
+2026-03-15T03:10:46.842-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/10)
+2026-03-15T03:10:46.845-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [PathPattern [GET /logout], PathPattern [POST /logout], PathPattern [PUT /logout], PathPattern [DELETE /logout]]
+2026-03-15T03:10:46.846-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (6/10)
+2026-03-15T03:10:46.846-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.s.w.s.HttpSessionRequestCache        : matchingRequestParameterName is required for getMatchingRequest to lookup a value, but not provided
+2026-03-15T03:10:46.846-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (7/10)
+2026-03-15T03:10:46.848-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (8/10)
+2026-03-15T03:10:46.850-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (9/10)
+2026-03-15T03:10:46.852-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (10/10)  
+2026-03-15T03:10:46.857-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] estMatcherDelegatingAuthorizationManager : Authorizing POST /auth/register       
+2026-03-15T03:10:46.858-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /auth/register using org.springframework.security.authorization.SingleResultAuthorizationManager@38eee7d2
+2026-03-15T03:10:46.872-03:00 DEBUG 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-03-15T03:10:47.278-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2026-03-15T03:10:47.284-03:00  WARN 1784 --- [finances-api] [nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.finances.finances_api.dto.auth.AuthResponse> com.finances.finances_api.controller.AuthController.register(com.finances.finances_api.dto.auth.RegisterRequest) with 3 errors: [Field error in object 'registerRequest' on field 'password': rejected value [null]; codes [NotBlank.registerRequest.password,NotBlank.password,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [registerRequest.password,password]; arguments []; default message [password]]; default message [não deve estar em branco]] [Field error in object 'registerRequest' on field 'email': rejected value [null]; codes [NotBlank.registerRequest.email,NotBlank.email,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [registerRequest.email,email]; arguments []; default message [email]]; default message [não deve estar em branco]] [Field error in object 'registerRequest' on field 'name': rejected value [null]; codes [NotBlank.registerRequest.name,NotBlank.name,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [registerRequest.name,name]; arguments []; default message [name]]; default message [não deve estar em branco]] ]      
+2026-03-15T03:10:47.285-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] w.c.HttpSessionSecurityContextRepository : No HttpSession currently exists       
+2026-03-15T03:10:47.286-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2026-03-15T03:10:47.287-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2026-03-15T03:10:47.291-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2026-03-15T03:10:47.312-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilterChain' in [class path resource [com/finances/finances_api/config/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, ExceptionTranslation, Authorization] (1/1)
+2026-03-15T03:10:47.312-03:00 DEBUG 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /error
+2026-03-15T03:10:47.312-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/10)
+2026-03-15T03:10:47.313-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/10)
+2026-03-15T03:10:47.314-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/10)
+2026-03-15T03:10:47.315-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/10)    
+2026-03-15T03:10:47.315-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/10)
+2026-03-15T03:10:47.316-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [PathPattern [GET /logout], PathPattern [POST /logout], PathPattern [PUT /logout], PathPattern [DELETE /logout]]
+2026-03-15T03:10:47.322-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (6/10)
+2026-03-15T03:10:47.323-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.s.w.s.HttpSessionRequestCache        : matchingRequestParameterName is required for getMatchingRequest to lookup a value, but not provided
+2026-03-15T03:10:47.324-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (7/10)
+2026-03-15T03:10:47.325-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (8/10)
+2026-03-15T03:10:47.325-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (9/10)
+2026-03-15T03:10:47.326-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (10/10)  
+2026-03-15T03:10:47.326-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] estMatcherDelegatingAuthorizationManager : Authorizing GET /error
+2026-03-15T03:10:47.327-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /error using org.springframework.security.authorization.AuthenticatedAuthorizationManager@11bbed4f
+2026-03-15T03:10:47.327-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] w.c.HttpSessionSecurityContextRepository : No HttpSession currently exists       
+2026-03-15T03:10:47.327-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2026-03-15T03:10:47.327-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2026-03-15T03:10:47.328-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2026-03-15T03:10:47.341-03:00 TRACE 1784 --- [finances-api] [nio-8080-exec-1] o.s.s.w.a.ExceptionTranslationFilter     : Sending AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]] to authentication entry point since access is denied
+
+org.springframework.security.authorization.AuthorizationDeniedException: Access Denied
+        at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:99) ~[spring-security-web-7.0.3.jar:7.0.3]  
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:244) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:231) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:141) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:244) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:231) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:141) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:244) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:231) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:141) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:244) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:231) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:141) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:244) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:231) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:141) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:244) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:231) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:141) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:244) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:231) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:141) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:244) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:231) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:141) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:244) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:231) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:141) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:244) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:337) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:141) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195) ~[spring-security-web-7.0.3.jar:7.0.3]
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317) ~[spring-security-config-7.0.3.jar:7.0.3]
+        at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.5.jar:7.0.5]
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:513) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:335) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:262) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:375) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:206) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:149) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+        at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-03-15T03:10:47.405-03:00 DEBUG 1784 --- [finances-api] [nio-8080-exec-1] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost:8080/error?continue to session
+2026-03-15T03:10:47.406-03:00 DEBUG 1784 --- [finances-api] [nio-8080-exec-1] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
