@@ -1,10 +1,8 @@
 package com.finances.finances_api.service;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.finances.finances_api.dto.auth.LoginRequest;
 import com.finances.finances_api.domain.User;
 import com.finances.finances_api.dto.auth.AuthResponse;
 import com.finances.finances_api.dto.auth.RegisterRequest;
@@ -34,7 +32,7 @@ public class AuthService {
         return new AuthResponse("accessToken", "refreshToken", 3600);
     }
 
-//     public AuthResponse login(LoginRequest request) {
-// 
-//     }
+    // public AuthResponse login(LoginRequest request) {
+    //
+    // }
 }
