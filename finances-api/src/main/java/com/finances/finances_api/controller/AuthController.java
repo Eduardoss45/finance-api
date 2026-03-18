@@ -31,11 +31,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest dto) {
-        AuthResponse response = new AuthResponse();
-        response.setAccessToken("jwt_token");
-        response.setRefreshToken("refresh_token");
-        response.setExpiresIn(3600);
-
+        AuthResponse response = authService.login(dto);
         return ResponseEntity.ok(response);
     }
 
