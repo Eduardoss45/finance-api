@@ -1,11 +1,12 @@
 package com.finances.finances_api.controller;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,9 +40,10 @@ public class TransactionController {
     }
 
     @GetMapping
-    public List<TransactionResponse> list(
+    public Page<TransactionResponse> list(
             @PathVariable UUID id,
+            Pageable pageable,
             @AuthenticationPrincipal UserMain requester) {
-        return transactionService.listByAccount(id, requester);
+        return transactionService.listByAccount(id, pageable, requester);
     }
 }

@@ -1,16 +1,21 @@
 package com.finances.finances_api.service;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.finances.finances_api.audit.Audited;
 import com.finances.finances_api.domain.Account;
 import com.finances.finances_api.domain.Transaction;
 import com.finances.finances_api.domain.enums.TransactionType;
 import com.finances.finances_api.dto.transaction.TransactionRequest;
 import com.finances.finances_api.dto.transaction.TransactionResponse;
+import com.finances.finances_api.exception.BadRequestException;
+import com.finances.finances_api.exception.ForbiddenException;
+import com.finances.finances_api.exception.NotFoundException;
 import com.finances.finances_api.mapper.TransactionMapper;
 import com.finances.finances_api.repository.AccountRepository;
 import com.finances.finances_api.repository.TransactionRepository;
@@ -29,21 +34,20 @@ public class TransactionService {
     }
 
     @Transactional
+    @Audited(action = "TRANSACTION_CREATED", entity = "Transaction")
     public TransactionResponse create(UUID accountId, TransactionRequest request, UserMain requester) {
-        Account account = accountRepository.findById(accountId)
-                .orElseThrow(() -> new RuntimeException("Account not found"));
+        Account account = accountRepository.findByIdForUpdate(accountId)
+                .orElseThrow(() -> new NotFoundException("Account not found"));
 
         if (!account.getUser().getId().equals(requester.getUser().getId())) {
-            throw new RuntimeException("Forbidden");
+            throw new ForbiddenException("Forbidden");
         }
 
-        BigDecimal balance = transactionRepository.findByAccountId(accountId).stream()
-                .map(tx -> tx.getType() == TransactionType.CREDIT ? tx.getAmount() : tx.getAmount().negate())
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        BigDecimal balance = account.getBalance();
 
         if (request.getType() == TransactionType.DEBIT) {
             if (balance.compareTo(request.getAmount()) < 0) {
-                throw new RuntimeException("Insufficient balance");
+                throw new BadRequestException("Insufficient balance");
             }
         }
 
@@ -53,17 +57,24 @@ public class TransactionService {
         tx.setAmount(request.getAmount());
         transactionRepository.save(tx);
 
+        if (request.getType() == TransactionType.CREDIT) {
+            account.setBalance(balance.add(request.getAmount()));
+        } else {
+            account.setBalance(balance.subtract(request.getAmount()));
+        }
+        accountRepository.save(account);
+
         return TransactionMapper.toResponse(tx);
     }
 
-    public List<TransactionResponse> listByAccount(UUID accountId, UserMain requester) {
+    public Page<TransactionResponse> listByAccount(UUID accountId, Pageable pageable, UserMain requester) {
         Account account = accountRepository.findById(accountId)
-                .orElseThrow(() -> new RuntimeException("Account not found"));
+                .orElseThrow(() -> new NotFoundException("Account not found"));
         if (!account.getUser().getId().equals(requester.getUser().getId())) {
-            throw new RuntimeException("Forbidden");
+            throw new ForbiddenException("Forbidden");
         }
 
-        List<Transaction> transactions = transactionRepository.findByAccountId(accountId);
-        return transactions.stream().map(TransactionMapper::toResponse).toList();
+        return transactionRepository.findByAccountId(accountId, pageable)
+                .map(TransactionMapper::toResponse);
     }
 }

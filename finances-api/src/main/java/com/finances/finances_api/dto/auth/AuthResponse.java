@@ -1,5 +1,7 @@
 package com.finances.finances_api.dto.auth;
 
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthResponse {
+    private UUID userId;
     private String accessToken;
     private String refreshToken;
-    private int expiresIn;
+    private int expiresIn;    
 }

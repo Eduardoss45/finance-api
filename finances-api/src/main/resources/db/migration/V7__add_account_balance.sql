@@ -1,0 +1,2 @@
+﻿ALTER TABLE accounts
+    ADD COLUMN balance NUMERIC(15,2) NOT NULL DEFAULT 0;

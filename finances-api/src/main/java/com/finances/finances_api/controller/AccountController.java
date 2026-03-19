@@ -1,11 +1,12 @@
 package com.finances.finances_api.controller;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,8 +39,8 @@ public class AccountController {
     }
 
     @GetMapping
-    public List<AccountResponse> listAll(@AuthenticationPrincipal UserMain requester) {
-        return accountService.listAll(requester);
+    public Page<AccountResponse> listAll(Pageable pageable, @AuthenticationPrincipal UserMain requester) {
+        return accountService.listAll(pageable, requester);
     }
 
     @GetMapping("/{id}")

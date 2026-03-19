@@ -1,4 +1,4 @@
-package com.finances.finances_api.service;
+package com.finances.finances_api.audit;
 
 import java.util.UUID;
 

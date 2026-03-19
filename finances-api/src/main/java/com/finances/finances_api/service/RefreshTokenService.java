@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.finances.finances_api.domain.RefreshToken;
 import com.finances.finances_api.domain.User;
+import com.finances.finances_api.exception.UnauthorizedException;
 import com.finances.finances_api.repository.RefreshTokenRepository;
 
 @Service
@@ -22,21 +23,22 @@ public class RefreshTokenService {
     }
 
     public String createFor(User user) {
-        String token = UUID.randomUUID().toString();
-        RefreshToken entity = new RefreshToken();
-        entity.setUser(user);
-        entity.setToken(token);
-        entity.setExpiresAt(Instant.now().plusMillis(refreshExpiration));
-        refreshTokenRepository.save(entity);
-        return token;
+        String tokenValue = UUID.randomUUID().toString();
+        RefreshToken token = refreshTokenRepository.findByUser(user).orElseGet(RefreshToken::new);
+
+        token.setUser(user);
+        token.setToken(tokenValue);
+        token.setExpiresAt(Instant.now().plusMillis(refreshExpiration));
+        refreshTokenRepository.save(token);
+        return tokenValue;
     }
 
     public RefreshToken validate(String token) {
         RefreshToken entity = refreshTokenRepository.findByToken(token)
-                .orElseThrow(() -> new RuntimeException("Invalid refresh token"));
+                .orElseThrow(() -> new UnauthorizedException("Invalid refresh token"));
 
         if (entity.getExpiresAt().isBefore(Instant.now())) {
-            throw new RuntimeException("Refresh token expired");
+            throw new UnauthorizedException("Refresh token expired");
         }
 
         return entity;
