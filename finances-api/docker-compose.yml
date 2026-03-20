@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:16
+    container_name: finances-db
+    environment:
+      POSTGRES_DB: finances_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - finances_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d finances_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build: .
+    container_name: finances-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/finances_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      JWT_SECRET: "uVdLxq8P1mFQKp1xQ9l5t5H8y8j5kM9c9r9zF3z1lW8="
+    ports:
+      - "8080:8080"
+
+volumes:
+  finances_db_data:
