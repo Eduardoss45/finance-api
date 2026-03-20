@@ -1,144 +1,131 @@
-# Desafio Backend — API Financeira Enterprise com Spring Boot
+# 💰 Finances API — Sistema Financeiro com Spring Boot
 
-Este desafio tem como objetivo desenvolver uma **API REST corporativa utilizando Java e Spring Boot**, explorando conceitos fundamentais do ecossistema Spring.
+API REST para gestão financeira construída com **Spring Boot**, focada em **segurança, consistência transacional e arquitetura em camadas**.
 
-O foco não é apenas implementar funcionalidades, mas **entender como o framework funciona internamente**, incluindo:
+O sistema permite:
 
-- Injeção de dependência
-- Ciclo de vida de beans
-- Arquitetura em camadas
-- Segurança com JWT
-- Persistência com JPA/Hibernate
-- Observabilidade e auditoria
-- Testes e boas práticas enterprise
+* autenticação com JWT (access + refresh)
+* gestão de usuários e contas
+* registro de transações financeiras
+* auditoria de ações sensíveis
 
----
-
-# 🎯 Objetivo do Desafio
-
-Construir uma **API de gestão financeira simplificada**, onde usuários podem possuir contas e registrar transações.
-
-O sistema deve demonstrar:
-
-- Domínio do **ecossistema Spring**
-- Arquitetura backend madura
-- Segurança consistente
-- Separação clara de responsabilidades
-- Organização voltada para aplicações empresariais
+O projeto foi desenvolvido com foco em **clareza arquitetural e decisões técnicas explícitas**, não apenas entrega funcional.
 
 ---
 
-# 📚 Tecnologias Obrigatórias
+## ⚠️ Configuração Obrigatória (Critical Setup)
 
-## Framework
+> A aplicação **não funciona corretamente** sem configuração adequada das variáveis abaixo.
 
-- Spring Boot
-- Spring Framework
+### Variáveis obrigatórias
 
-## Persistência
-
-- Spring Data JPA
-- Hibernate ORM
-- PostgreSQL
-
-## Segurança
-
-- Spring Security
-- JWT
-
-## Infraestrutura
-
-- Docker
-- Flyway
-
-## Testes
-
-- JUnit
-- Testcontainers
-
----
-
-# 🧠 O que você deve aprender com este projeto
-
-Este projeto foi desenhado para forçar o aprendizado de conceitos centrais do Spring:
-
-### Inversão de Controle
-
-Entender como o Spring gerencia objetos através do **IoC Container**.
-
-Você deve compreender:
-
-- Beans
-- ApplicationContext
-- Dependency Injection
-
----
-
-### Arquitetura em Camadas
-
-Separação clara entre responsabilidades:
-
-```
-Controller
-Service
-Repository
-Domain
+```env
+JWT_SECRET=your-secret-key
 ```
 
-Cada camada possui responsabilidades específicas:
-
-| Camada     | Responsabilidade  |
-| ---------- | ----------------- |
-| Controller | Interface HTTP    |
-| Service    | Regras de negócio |
-| Repository | Acesso ao banco   |
-| Domain     | Modelo do sistema |
+* Utilizada para assinatura dos tokens JWT
+* Deve ser consistente entre ambientes
+* Valor inválido quebra autenticação silenciosamente
 
 ---
 
-### Persistência com ORM
+### ⚠️ Credenciais e ambiente
 
-Aprender como o Spring integra com o Hibernate para:
-
-- mapear entidades
-- gerar queries
-- gerenciar transações
+* Credenciais do banco estão em claro (`application.properties`)
+* Uso **exclusivo para desenvolvimento**
+* Não adequado para produção
 
 ---
 
-### Segurança
+## 🐳 Docker & Execução
 
-Compreender o funcionamento do pipeline de segurança:
+### ⚠️ Estrutura de docker-compose
 
-```
-HTTP Request
-↓
-Security Filter Chain
-↓
-Authentication
-↓
-Authorization
-↓
-Controller
+Existem dois arquivos:
+
+| Caminho                            | Função                      |
+| ---------------------------------- | --------------------------- |
+| `/docker-compose.yml`              | Apenas PostgreSQL           |
+| `/finances-api/docker-compose.yml` | **API + Banco (principal)** |
+
+### Execução recomendada
+
+```bash
+cd finances-api
+docker compose up --build
 ```
 
 ---
 
-### Observabilidade
+## 🧱 Arquitetura
 
-Aplicações enterprise precisam de:
+```text
+Cliente
+  │
+  ▼
+Spring Boot API
+  │
+  ├── Security (JWT + Rate Limit)
+  ├── Controllers
+  ├── Services
+  ├── Audit (AOP)
+  ├── Exception Handling
+  └── Persistence (JPA + PostgreSQL + Flyway)
+```
 
-- logs estruturados
-- auditoria de ações
-- rastreabilidade
+### Padrão adotado
+
+Arquitetura em camadas:
+
+```
+Controller → Service → Repository → Domain
+```
 
 ---
 
-# 🧱 Requisitos Funcionais
+## 🔐 Segurança
 
-## Autenticação
+### Implementação
 
-Sistema deve possuir:
+* JWT (access + refresh)
+* BCrypt para hashing de senha
+* Roles:
+
+  * `ROLE_USER`
+  * `ROLE_ADMIN`
+
+---
+
+### Tokens
+
+| Tipo          | Expiração |
+| ------------- | --------- |
+| Access Token  | 1 hora    |
+| Refresh Token | 7 dias    |
+
+### Características
+
+* Refresh token **persistido em banco**
+* **Rotação ativa de refresh token**
+
+---
+
+### Rate Limiting (Diferencial)
+
+Aplicado em endpoints críticos:
+
+| Endpoint        | Limite     |
+| --------------- | ---------- |
+| `/auth/login`   | 5 req/min  |
+| `/auth/refresh` | 10 req/min |
+
+Implementado via filtro customizado.
+
+---
+
+## 📌 Endpoints
+
+### Auth
 
 ```
 POST /auth/register
@@ -146,17 +133,9 @@ POST /auth/login
 POST /auth/refresh
 ```
 
-Regras:
-
-- Senhas criptografadas com BCrypt
-- Token JWT com expiração
-- Refresh token persistido
-
 ---
 
-## Gestão de Usuários
-
-Endpoints:
+### Users
 
 ```
 GET /users
@@ -166,14 +145,12 @@ PATCH /users/{id}/deactivate
 
 Regras:
 
-- Apenas ADMIN pode listar usuários
-- Usuário pode visualizar apenas seus próprios dados
+* ADMIN lista usuários
+* usuário acessa apenas seus próprios dados
 
 ---
 
-## Gestão de Contas
-
-Endpoints:
+### Accounts
 
 ```
 POST /accounts
@@ -182,48 +159,140 @@ GET /accounts/{id}
 DELETE /accounts/{id}
 ```
 
-Regras:
-
-- Cada usuário pode possuir múltiplas contas
-- Conta pertence a apenas um usuário
-
 ---
 
-## Transações
-
-Endpoints:
+### Transactions
 
 ```
 POST /accounts/{id}/transactions
 GET /accounts/{id}/transactions
 ```
 
-Tipos:
+Regras:
 
-```
-CREDIT
-DEBIT
-```
-
-Regras de negócio:
-
-- Não permitir saldo negativo
-- Transações são imutáveis
-- Valores devem ser positivos
+* valores positivos
+* não permite saldo negativo
+* transações são imutáveis
 
 ---
 
-## Auditoria
+## 📄 Paginação
 
-Todas as ações sensíveis devem ser registradas:
+```http
+GET /accounts?page=0&size=10&sort=createdAt,desc
+```
 
-- login
-- criação de usuário
-- criação de conta
-- registro de transação
-- alterações administrativas
+---
 
-Campos registrados:
+## 🗄️ Persistência
+
+### Stack
+
+* PostgreSQL
+* Spring Data JPA
+* Hibernate
+* Flyway
+
+---
+
+### Flyway
+
+```properties
+baseline-on-migrate=true
+clean-disabled=true
+```
+
+---
+
+## ⚠️ Decisões Arquiteturais & Trade-offs
+
+Esta seção documenta **decisões conscientes do projeto**.
+
+---
+
+### 1. Saldo persistido em conta
+
+```text
+accounts.balance
+```
+
+#### Decisão
+
+Saldo armazenado diretamente na entidade.
+
+#### Motivação
+
+* leitura rápida
+* menor custo computacional
+
+#### Trade-off
+
+* exige controle rigoroso de consistência
+* risco de divergência se regras falharem
+
+---
+
+### 2. Controle de concorrência (Diferencial)
+
+Uso de:
+
+```sql
+SELECT ... FOR UPDATE
+```
+
+#### Objetivo
+
+* evitar race conditions em transações financeiras
+
+---
+
+### 3. `ddl-auto=update` ativo
+
+```properties
+spring.jpa.hibernate.ddl-auto=update
+```
+
+#### Motivo
+
+* agilidade no desenvolvimento
+
+#### Trade-off
+
+* conflita com Flyway como fonte única de schema
+* **não recomendado em produção**
+
+---
+
+### 4. Logging detalhado de segurança
+
+```properties
+logging.level.org.springframework.security=TRACE
+```
+
+#### Uso
+
+* debugging de autenticação
+
+#### Trade-off
+
+* alto volume de logs
+* possível exposição de informações sensíveis
+
+---
+
+## 🧾 Auditoria (Diferencial)
+
+Implementada via **AOP com anotação `@Audited`**.
+
+### Eventos registrados
+
+* login
+* criação de usuário
+* criação de conta
+* transações
+* ações administrativas
+
+### Estrutura
 
 ```
 user_id
@@ -235,236 +304,110 @@ timestamp
 
 ---
 
-# 🏗️ Arquitetura Esperada
+## ❗ Tratamento de Erros
 
-Estrutura recomendada:
+Padrão adotado:
 
-```
-src/main/java/com/company/finance
+* `ProblemDetail` (RFC 7807)
+* `ValidationErrorResponse`
 
-config/
-security/
-controller/
-service/
-repository/
-domain/
-dto/
-mapper/
-audit/
-exception/
-```
+### Benefícios
 
-Descrição:
-
-| Diretório  | Função                     |
-| ---------- | -------------------------- |
-| config     | configurações do Spring    |
-| security   | autenticação e autorização |
-| controller | endpoints HTTP             |
-| service    | regras de negócio          |
-| repository | acesso ao banco            |
-| domain     | entidades e enums          |
-| dto        | objetos de transporte      |
-| mapper     | conversão DTO ↔ entidade   |
-| audit      | auditoria                  |
-| exception  | tratamento global          |
+* respostas consistentes
+* fácil integração com frontend
+* padronização de erros
 
 ---
 
-# 🗄️ Modelo de Dados
+## 📊 Observabilidade
 
-## User
+### Implementado
 
-```
-id
-name
-email
-password
-role
-active
-created_at
-```
+* logs de aplicação
+* logs detalhados de segurança
 
----
+### Limitação atual
 
-## Account
+* ❌ não há correlação de requisições (trace-id)
 
-```
-id
-user_id
-name
-active
-created_at
-```
+> A documentação anterior sugeria correlação completa — isso foi **corrigido para refletir o estado real do projeto**.
 
 ---
 
-## Transaction
+## 🧪 Testes
 
-```
-id
-account_id
-type
-amount
-created_at
-```
+### Estratégia
 
----
+* unitários → camada service
+* integração → endpoints
 
-## AuditLog
+### Stack
 
-```
-id
-user_id
-action
-entity_name
-entity_id
-created_at
-```
+* JUnit
+* Testcontainers (PostgreSQL real)
 
 ---
 
-# 🔐 Segurança
+## 📑 Swagger
 
-Implementar autenticação com:
-
-- JWT
-- BCrypt
-- Authorization baseada em roles
-
-Roles:
-
-```
-ROLE_USER
-ROLE_ADMIN
-```
-
----
-
-# ⚙️ Banco de Dados
-
-Requisitos:
-
-- migrations versionadas com Flyway
-- constraints bem definidas
-- índices para consultas frequentes
-
-Exemplo:
-
-```
-users.email UNIQUE
-accounts.user_id INDEX
-transactions.account_id INDEX
-```
-
----
-
-# 🧪 Testes
-
-Projeto deve possuir:
-
-### Testes unitários
-
-Camada service.
-
-### Testes de integração
-
-Endpoints principais.
-
-Uso recomendado:
-
-- Testcontainers para subir PostgreSQL real.
-
----
-
-# 🐳 Docker
-
-Projeto deve possuir:
-
-```
-Dockerfile
-docker-compose.yml
-```
-
-Serviços:
-
-- aplicação
-- PostgreSQL
-
----
-
-# 📊 Observabilidade
-
-Aplicação deve possuir:
-
-- logs padronizados
-- logs de erro estruturados
-- correlação de requisições
-
----
-
-# 📄 Documentação
-
-Expor documentação com:
-
-- OpenAPI
-- Swagger UI
-
-Endpoint:
+Disponível em:
 
 ```
 /swagger-ui.html
 ```
 
----
+### Inclui
 
-# ⭐ Diferenciais (Opcional)
-
-- Auditoria via AOP
-- MapStruct para DTO mapping
-- Rate limiting
-- Caching com Redis
-- CI pipeline
+* endpoints
+* DTOs
+* autenticação Bearer
 
 ---
 
-# 📦 Resultado Esperado
+## ⭐ Diferenciais do Projeto
 
-Uma API que demonstre:
+Itens além do escopo básico:
 
-- domínio do ecossistema Spring
-- arquitetura backend madura
-- segurança consistente
-- boas práticas enterprise
-- organização profissional de código
-
----
-
-# 📚 Materiais Recomendados
-
-Documentação oficial:
-
-- Spring Boot
-- Spring Security
-- Spring Data JPA
+* Rate limiting por endpoint
+* Auditoria via AOP
+* Refresh token com rotação
+* Lock pessimista em transações
+* Paginação consistente
+* Tratamento de erro padronizado (RFC 7807)
 
 ---
 
-# ⏱️ Prazo sugerido
+## 🧠 Considerações Arquiteturais
 
-30 a 50 dias.
+O projeto segue abordagem:
+
+> **Monólito modular orientado a domínio**
+
+Motivações:
+
+* simplicidade operacional
+* menor overhead
+* facilidade de manutenção
 
 ---
 
-# 💡 Ordem recomendada de desenvolvimento
+## 🚀 Possíveis Evoluções
 
-1. Modelagem do banco
-2. Entidades JPA
-3. Repositories
-4. Services
-5. Segurança JWT
-6. Controllers
-7. Auditoria
-8. Testes
-9. Docker
-10. Documentação
+* Redis para cache
+* fila assíncrona (RabbitMQ/Kafka)
+* correlation-id (observabilidade completa)
+* métricas com Micrometer
+* tracing distribuído
+* CI/CD pipeline
+
+---
+
+## 📌 Conclusão
+
+Este projeto demonstra:
+
+* domínio do ecossistema Spring
+* aplicação de segurança real (JWT + rotação)
+* controle de concorrência
+* clareza arquitetural
+* decisões técnicas explícitas
